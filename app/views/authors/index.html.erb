@@ -1,13 +1,28 @@
 <h1>Index of Authors</h1>
 
-<table>
+<img
+ style="display: none;"
+ src="https://i.redd.it/ounq1mw5kdxy.gif" />
+
+<table class="authors">
   <% @authors.each do |author| %>
-    <tr>
-      <td><%= link_to author.full_name, author_path(id: author.id) %></td>
-      <td><%= link_to 'Edit', edit_author_path(id: author.id) %></td>
-      <td><%= link_to 'Delete', author_path(id: author.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
+    <%= render 'author', author: author %>
   <% end %>
 </table>
 <hr/>
-<%= link_to 'New', new_author_path %>
+
+<%= form_for @author, remote: true, html: { class: 'new-author' } do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <br/>
+
+  <%= f.label :surname %>
+  <%= f.text_field :surname %>
+  <br/>
+
+  <%= f.label :age %>
+  <%= f.number_field :age %>
+  <br/>
+
+  <%= f.submit 'Save' %>
+<% end %>

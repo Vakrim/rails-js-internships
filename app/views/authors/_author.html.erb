@@ -1,0 +1,5 @@
+<tr data-author-id="<%= author.id %>">
+  <td><%= link_to author.full_name, author_path(id: author.id) %></td>
+  <td><%= link_to 'Edit', edit_author_path(id: author.id) %></td>
+  <td><%= link_to 'Delete', author_path(id: author.id), method: :delete, remote: true, data: { confirm: 'Are you sure?' } %></td>
+</tr>

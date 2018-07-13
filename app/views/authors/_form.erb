@@ -7,18 +7,3 @@
 <% end %>
 
 <!-- form_for allows to work with an object -->
-<%= form_for @author do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <br/>
-
-  <%= f.label :surname %>
-  <%= f.text_field :surname %>
-  <br/>
-
-  <%= f.label :age %>
-  <%= f.number_field :age %>
-  <br/>
-
-  <%= f.submit 'Save' %>
-<% end %>
